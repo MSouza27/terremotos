@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa de Terremotos</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>#map { height: 600px; }</style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([0, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+        var terremotos = [
+            { lat: 41.4039, lng: 83.6375, local: '68 km ESE of Kuqa, China', magnitude: 4.0 },
+            { lat: 29.1903, lng: 103.2771, local: '62 km SW of Leshan, China', magnitude: 4.1 },
+            { lat: 29.5797, lng: 104.0537, local: '21 km N of Luocheng, China', magnitude: 4.4 },
+            { lat: 36.9568, lng: 78.745, local: '36 km S of Zangguy, China', magnitude: 4.4 },
+            { lat: 31.6022, lng: 132.324, local: '90 km E of Nichinan, Japan', magnitude: 4.4 },
+            { lat: 29.5883, lng: 104.8953, local: '16 km W of Neijiang, China', magnitude: 4.4 },
+            { lat: 40.9694, lng: 84.0796, local: '127 km SE of Kuqa, China', magnitude: 4.4 },
+            { lat: -28.7296, lng: -68.638, local: '42 km W of Vinchina, Argentina', magnitude: 4.4 },
+            { lat: 33.1712, lng: 102.6718, local: '57 km ESE of Cairima, China', magnitude: 4.7 },
+            { lat: 26.7519, lng: 128.9437, local: '74 km SSE of China, Japan', magnitude: 4.6 },
+            { lat: 38.3787, lng: 75.5224, local: '117 km WNW of Huoshilafu, China', magnitude: 4.2 },
+            { lat: 29.7753, lng: 92.1579, local: '103 km E of Lhasa, China', magnitude: 4.5 },
+            { lat: 27.9272, lng: 105.4182, local: '26 km S of Xuyong, China', magnitude: 4.3 },
+            { lat: 31.7088, lng: 131.8103, local: '43 km ENE of Nichinan, Japan', magnitude: 5.3 },
+            { lat: 61.6083, lng: -146.5889, local: '43 km SSE of Nelchina, Alaska', magnitude: 2.0 },
+            { lat: 41.2879, lng: 79.1268, local: '92 km WNW of Aykol, China', magnitude: 4.5 },
+            { lat: 36.2079, lng: 111.146, local: '36 km WNW of Linfen, China', magnitude: 4.5 },
+            { lat: 35.0222, lng: 97.4719, local: 'Southern Qinghai, China', magnitude: 4.4 },
+            { lat: 21.6156, lng: 115.5776, local: '131 km S of Shanwei, China', magnitude: 4.1 },
+            { lat: 34.8624, lng: 97.4916, local: 'Southern Qinghai, China', magnitude: 4.2 },
+            { lat: 34.8484, lng: 97.4589, local: 'Southern Qinghai, China', magnitude: 4.2 },
+            { lat: 34.7767, lng: 97.4386, local: 'Southern Qinghai, China', magnitude: 5.7 },
+            { lat: 28.3936, lng: 108.4932, local: '14 km W of Nanyaojie, China', magnitude: 4.0 },
+            { lat: 41.4441, lng: 81.9288, local: '88 km WSW of Kuqa, China', magnitude: 4.5 },
+            { lat: 38.3074, lng: 78.192, local: '60 km E of Kalasu, China', magnitude: 4.4 },
+            { lat: 62.6728, lng: -144.6256, local: '11 km N of Chistochina, Alaska', magnitude: 1.4 },
+            { lat: 38.5803, lng: 106.0896, local: '13 km SW of Nanliang Nongchang, China', magnitude: 4.8 },
+            { lat: 44.0318, lng: 80.9899, local: '9 km ESE of Huocheng, China', magnitude: 4.5 },
+            { lat: 38.5193, lng: 106.2897, local: '5 km NNE of Yinchuan, China', magnitude: 4.8 },
+            { lat: -28.1086, lng: -69.1908, local: '120 km NW of Vinchina, Argentina', magnitude: 4.0 },
+            { lat: 61.7851, lng: -146.4629, local: '28 km SE of Nelchina, Alaska', magnitude: 1.6 },
+            { lat: 61.6051, lng: -146.2502, local: '51 km SSE of Nelchina, Alaska', magnitude: 1.5 },
+        ];
+        terremotos.forEach(function(t) {
+            L.marker([t.lat, t.lng]).bindPopup('<b>' + t.local + '</b><br>Magnitude: ' + t.magnitude).addTo(map);
+        });
+    </script>
+</body>
+</html>
